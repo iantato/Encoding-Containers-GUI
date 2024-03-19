@@ -1,0 +1,33 @@
+form {
+    width: 40rem;
+    height: 10rem;
+}
+
+span {
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+
+    text-align: center;
+}
+
+button {
+    background-color: var(--platinum);
+    color: var(--gunmetal);
+
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+button:active {
+    color: var(--mossgreen);
+}
+
+@media screen and (max-width: 700px) {
+    #buttons {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+    }
+}

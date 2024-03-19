@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/stylesheet.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/forms.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/login.css') }}">
+        
+        <title>Encoding Containers</title>
+    </head>
+
+    <body>
+        <h1>CONTAINERS ENCODER</h1>
+
+        <span id="incorrect" style="visibility: {{ visibility }};">INCORRECT USER/PASSWORD!</span>
+        
+        <form action="{{ url_for('encode.login_route') }}" method="POST" autocomplete="off">
+            <label for="username">username:</label>
+            <input type="text" name="username" id="username">
+
+            <label for="password">password:</label>
+            <input type="password" name="password" id="password">
+
+            <button type="submit">LOGIN</button>
+        </form>
+
+        <!-- Changes depending on what the company we're currently logging on into. -->
+        <span id="company_website">vbs.1-stop.biz</span>
+
+    </body>
+</html>

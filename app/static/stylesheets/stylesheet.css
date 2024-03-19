@@ -1,0 +1,34 @@
+:root {
+    --gunmetal: #1C2828;
+    --mossgreen: #3C493F;
+    --platinum: #E7E5DF;
+    --timberwolf: #c7c4be;
+    --vermillion: #dc493a;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+
+    user-select: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--gunmetal);
+}
+
+h1 {
+    font-family: "Inter", sans-serif;
+    font-size: 42px;
+    text-align: center;
+
+    color: var(--platinum);
+}
