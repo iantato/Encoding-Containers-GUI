@@ -6,6 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from app.exceptions.login import IncorrectLogin
+from app.config import BASE_DIR
 
 class Webdriver:
     
@@ -15,18 +16,16 @@ class Webdriver:
     def setup(self) -> None:
         chrome_options = ChromeOptions()
         chrome_options.add_argument('--enable-chrome-browser-cloud-management')
-        # chrome_options.add_experimental_option('prefs', {
-        #     "download.default_directory": DIR + '\\data',
-        #     "download.prompt_for_download": False,
-        #     "download.directory_upgrade": True,
-        #     "plugins.always_open_pdf_externally": True
-        # })
+        chrome_options.add_experimental_option('prefs', {
+            "download.default_directory": BASE_DIR + '\\data',
+            "download.prompt_for_download": False,
+            "download.directory_upgrade": True,
+            "plugins.always_open_pdf_externally": True
+        })
         
         self.driver = Chrome(options=chrome_options)
-
     
-    def login(self, driver: Chrome,
-              username: str, password: str, url: str) -> None:
+    def login(self, driver: Chrome, username: str, password: str, url: str) -> None:
         
         match url:
             case 'https://ictsi.vbs.1-stop.biz':
