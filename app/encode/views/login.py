@@ -1,5 +1,6 @@
-from flask import render_template, request
+from flask import render_template, request, redirect
 
+import app.config as config
 from app.encode.base import encoding_bp
 from app.exceptions.login import IncorrectLogin
 from app.utils.driver import Webdriver
@@ -13,11 +14,14 @@ def login_route():
         url = 'https://ictsi.vbs.1-stop.biz'
         
         # Setup webdriver.
-        webdriver = Webdriver()
-        current_driver = webdriver.driver
-        
+        # Base case for driver initialization.
+        if not hasattr(config, 'webdriver'):
+            webdriver = Webdriver()
+            config.webdriver = webdriver
+    
         try:
-            webdriver.login(current_driver, username, password, url)
+            webdriver.login(webdriver.driver, username, password, url)
+            return redirect('/scraper/date')
         except IncorrectLogin:
             return render_template("login.html", visibility="visible")
         finally:

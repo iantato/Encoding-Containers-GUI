@@ -18,7 +18,7 @@
     <body>
         <h1>CONTAINERS ENCODER</h1>
 
-        <form>
+        <form action="{{ url_for('encode.date_route') }}", method="POST">
             <label for="start">start date (MM-DD-YY):</label>
             <input type="date" name="start" id="start">
 

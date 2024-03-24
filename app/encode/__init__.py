@@ -1,3 +1,4 @@
 from .views import (
-    login
+    login,
+    date
 )
